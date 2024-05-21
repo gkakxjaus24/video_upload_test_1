@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function redirect() {
+            window.location.href = "https://gkakxjaus24.github.io/KIOSK/index.html"; 
+        }
+        setTimeout(redirect, 120000); 
+    </script>
+    <title>자주묻는 질문</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+        .question {
+            font-weight: bold;
+            cursor: pointer;
+            border: 1px solid black; 
+            padding: 10px;
+        }
+        .answer {
+            display: none;
+            padding: 10px;
+        }
+        .flex-item {
+            border: none;
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: normal;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .button:hover, .button:focus {
+            font-weight: bold;
+            border: 1px solid black;
+        }
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="question">빨래를 하고 싶어요.</div>
+        <div class="answer video-container">
+            <video controls>
+                <source src="https://youtube.com/shorts/dK7TkmenooE?feature=share" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="question">출입문은 언제 닫나요?</div>
+        <div class="answer">출입문은 24시간 열려 있습니다</div>
+
+        <div class="question">아침 식사는 어떻게 제공되나요?</div>
+        <div class="answer">아침 식사는 매일 아침 7시부터 9시까지 1층 식당에서 제공됩니다.</div>
+
+        <div class="question">Wi-Fi 비밀번호는 무엇인가요?</div>
+        <div class="answer">Wi-Fi 비밀번호는 guesthouse1234입니다.</div>
+    </div>
+    <div class="flex-item">
+        <a href="https://gkakxjaus24.github.io/KIOSK/index.html" class="button" style="border: 1px solid black;">처음으로</a>
+    </div>
+    <script>
+        const questions = document.querySelectorAll('.question');
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                document.querySelectorAll('.answer').forEach(answer => {
+                    if (answer !== question.nextElementSibling) {
+                        answer.style.display = 'none';
+                    }
+                });
+                const answer = question.nextElementSibling;
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
